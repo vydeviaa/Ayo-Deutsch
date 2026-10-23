@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#14213D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ayo Deutsch">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<title>Ayo Deutsch – Belajar bahasa Jerman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F4F7;--surface:#fff;--ink:#14213D;--muted:#5B6578;--line:#D9DEE7;--der:#2A5FD3;--die:#D62839;--das:#1F8A5B;--gold:#C98A00;--btn:#14213D;--onbtn:#fff;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1424;--surface:#18213A;--ink:#EEF1F7;--muted:#9AA5BC;--line:#2A3556;--der:#7BA3FF;--die:#FF7B88;--das:#4FD197;--gold:#FFC83D;--btn:#EEF1F7;--onbtn:#14213D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1424;--surface:#18213A;--ink:#EEF1F7;--muted:#9AA5BC;--line:#2A3556;--der:#7BA3FF;--die:#FF7B88;--das:#4FD197;--gold:#FFC83D;--btn:#EEF1F7;--onbtn:#14213D;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif}
+main{max-width:560px;margin:0 auto;padding:22px 18px 48px}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;margin:0;line-height:1.1}
+h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;font-weight:800}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:10px}
+.back{background:none;border:0;color:var(--muted);font:inherit;font-weight:600;cursor:pointer;padding:6px 0}
+.stats{display:flex;gap:14px;font-weight:600;font-size:.95rem}
+.stats b{color:var(--gold)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 26px}
+.chip{border:2px solid currentColor;border-radius:999px;padding:3px 12px;font-weight:600;font-size:.9rem}
+.der{color:var(--der)}.die{color:var(--die)}.das{color:var(--das)}
+.art{font-weight:600}
+.unit{display:block;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;color:inherit;font:inherit}
+.unit:hover{border-color:var(--ink)}
+.bar{height:6px;background:var(--line);border-radius:6px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--das);transition:width .3s}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.tip{border-left:4px solid var(--gold)}
+.modes{display:grid;gap:10px;margin:16px 0}
+.btn{background:var(--btn);color:var(--onbtn);border:0;border-radius:12px;padding:14px 18px;font:inherit;font-weight:600;cursor:pointer;width:100%}
+.btn.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.flash{min-height:260px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;cursor:pointer;padding:26px}
+.big{font-family:"Bricolage Grotesque",Figtree,sans-serif;font-size:2.2rem;font-weight:800;line-height:1.15}
+.ex{font-size:1rem}
+.spk{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:10px;font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--das);background:color-mix(in srgb,var(--das) 14%,var(--surface))}
+.opt.no{border-color:var(--die);background:color-mix(in srgb,var(--die) 14%,var(--surface))}
+.artbtns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.artbtns button{background:var(--surface);border:2px solid currentColor;border-radius:12px;padding:16px 0;font:inherit;font-weight:800;font-size:1.2rem;cursor:pointer}
+.artbtns button.ok{background:currentColor}
+.artbtns button.ok span{color:var(--surface)}
+.fb{min-height:48px;margin:6px 0 12px}
+.list{display:grid;gap:6px;margin-top:8px}
+.list div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:6px 0}
+.list span.k{color:var(--das);font-weight:600}
+.prog{font-weight:600;color:var(--muted);margin-bottom:10px}
+button:focus-visible{outline:3px solid var(--der);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const U=[
+{t:"Salam & sopan santun",de:"Begrüßung",tip:"Huruf ü dibaca dengan bibir membulat seperti mengucapkan “u”, tetapi bunyinya “i”. Coba: Tschüss, Entschuldigung. Huruf w dibaca “v”.",w:[
+["Hallo",0,"halo","Hallo, ich heiße Dewi.","Halo, nama saya Dewi."],
+["Guten Morgen",0,"selamat pagi","Guten Morgen, Herr Schmidt!","Selamat pagi, Pak Schmidt!"],
+["Guten Tag",0,"selamat siang","Guten Tag, wie geht’s?","Selamat siang, apa kabar?"],
+["Guten Abend",0,"selamat malam","Guten Abend, Frau Müller.","Selamat malam, Bu Müller."],
+["Tschüss",0,"dah, sampai jumpa","Tschüss, bis morgen!","Dah, sampai besok!"],
+["Danke",0,"terima kasih","Danke für die Hilfe.","Terima kasih atas bantuannya."],
+["Bitte",0,"silakan, sama-sama","Ein Kaffee, bitte.","Kopi satu, tolong."],
+["Entschuldigung",0,"maaf, permisi","Entschuldigung, wo ist der Bahnhof?","Permisi, stasiunnya di mana?"]]},
+{t:"Benda sehari-hari",de:"Alltagsgegenstände",tip:"Setiap kata benda Jerman punya jenis: der (maskulin), die (feminin), das (netral). Hafalkan kata bendanya bersama artikelnya. Huruf sch dibaca seperti “sy” pada kata “syarat”.",w:[
+["Tisch","der","meja","Der Tisch ist groß.","Mejanya besar."],
+["Tür","die","pintu","Die Tür ist offen.","Pintunya terbuka."],
+["Buch","das","buku","Ich lese das Buch.","Saya membaca buku itu."],
+["Stuhl","der","kursi","Der Stuhl ist neu.","Kursinya baru."],
+["Tasche","die","tas","Meine Tasche ist rot.","Tas saya merah."],
+["Fenster","das","jendela","Das Fenster ist zu.","Jendelanya tertutup."],
+["Lampe","die","lampu","Die Lampe ist an.","Lampunya menyala."],
+["Handy","das","ponsel","Wo ist mein Handy?","Di mana ponsel saya?"]]},
+{t:"Makanan & minuman",de:"Essen und Trinken",tip:"Huruf ei dibaca “ai” (Ei = ai), dan w dibaca “v” (Wasser = vasser). Huruf ch pada Milch dibaca lembut, seperti desisan “h” yang kuat.",w:[
+["Wasser","das","air","Ich trinke Wasser.","Saya minum air."],
+["Kaffee","der","kopi","Der Kaffee ist heiß.","Kopinya panas."],
+["Brot","das","roti","Ich esse Brot.","Saya makan roti."],
+["Reis","der","nasi","Ich mag Reis.","Saya suka nasi."],
+["Milch","die","susu","Die Milch ist kalt.","Susunya dingin."],
+["Apfel","der","apel","Der Apfel ist süß.","Apelnya manis."],
+["Suppe","die","sup","Die Suppe schmeckt gut.","Supnya enak."],
+["Ei","das","telur","Ich möchte ein Ei.","Saya mau satu telur."]]},
+{t:"Pesan di kafe",de:"Im Café",tip:"Di Jerman, pelayan biasanya dipanggil dengan kontak mata atau “Entschuldigung”, bukan dilambaikan. Untuk memberi tip, sebut totalnya sedikit lebih besar lalu bilang “Stimmt so”. Huruf ä pada “hätte” dibaca seperti “e”.",w:[
+["Ich hätte gern…",0,"saya mau pesan…","Ich hätte gern einen Cappuccino.","Saya mau pesan satu cappuccino."],
+["Die Speisekarte","die","menu","Die Speisekarte, bitte.","Menunya, tolong."],
+["Zum Mitnehmen",0,"dibawa pulang","Einen Latte zum Mitnehmen, bitte.","Satu latte dibawa pulang, tolong."],
+["Ist hier noch frei?",0,"apakah di sini masih kosong?","Entschuldigung, ist hier noch frei?","Permisi, apakah kursi ini masih kosong?"],
+["Mit Milch",0,"dengan susu","Kaffee mit Milch, bitte.","Kopi dengan susu, tolong."],
+["Die Rechnung","die","tagihan, bon","Die Rechnung, bitte.","Bonnya, tolong."],
+["Getrennt",0,"terpisah","Wir zahlen getrennt.","Kami bayar terpisah."],
+["Stimmt so",0,"kembaliannya ambil saja","Das macht fünf Euro. – Stimmt so!","Totalnya lima euro. – Ambil kembaliannya!"]]},
+{t:"Berteman di sekolah",de:"Freunde finden",tip:"Dengan teman sebaya, pakai “du” (kamu). Dengan dosen atau guru, pakai “Sie” (Anda), seperti beda “kamu” dan “Anda” dalam bahasa Indonesia. Huruf ß dibaca “s”, jadi “heißt” dibaca “haist”.",w:[
+["Wie heißt du?",0,"siapa namamu?","Hi, wie heißt du?","Hai, siapa namamu?"],
+["Freut mich",0,"senang berkenalan","Ich bin Dewi. – Freut mich!","Saya Dewi. – Senang berkenalan!"],
+["Woher kommst du?",0,"kamu berasal dari mana?","Woher kommst du? – Aus Indonesien.","Kamu dari mana? – Dari Indonesia."],
+["Ich komme aus Indonesien",0,"saya berasal dari Indonesia","Ich komme aus Indonesien, aus Jakarta.","Saya berasal dari Indonesia, dari Jakarta."],
+["Was studierst du?",0,"kamu jurusan apa?","Was studierst du? – Informatik.","Kamu jurusan apa? – Informatika."],
+["Die Klasse","die","kelas","Wir sind in derselben Klasse.","Kita satu kelas."],
+["Setz dich zu uns!",0,"duduk bareng kami!","Setz dich zu uns in der Mensa!","Duduk bareng kami di kantin kampus!"],
+["Lernen wir zusammen?",0,"belajar bareng yuk?","Lernen wir zusammen für die Prüfung?","Belajar bareng untuk ujian yuk?"]]},
+{t:"Ngobrol di gym",de:"Im Fitnessstudio",tip:"Di gym Jerman orang saling memakai “du”, dan biasanya membawa handuk untuk dialasi di alat. Huruf ä pada “Sätze” dibaca “e”. Kata “Training” dibaca dengan “tr” seperti biasa, tetapi “sch” dan “st” di awal kata dibaca “sy” dan “sht”.",w:[
+["Das Fitnessstudio","das","tempat gym","Das Fitnessstudio ist um die Ecke.","Tempat gym-nya dekat sini."],
+["Das Training","das","latihan","Das Training war hart.","Latihannya berat."],
+["Die Hantel","die","dumbel","Die Hantel ist zu schwer.","Dumbelnya terlalu berat."],
+["Die Umkleide","die","ruang ganti","Wo ist die Umkleide?","Di mana ruang gantinya?"],
+["Ist das Gerät frei?",0,"apakah alat ini kosong?","Entschuldigung, ist das Gerät frei?","Permisi, apakah alat ini kosong?"],
+["Kannst du mir helfen?",0,"bisa bantu saya?","Kannst du mir bitte helfen?","Bisa tolong bantu saya?"],
+["Wie viele Sätze noch?",0,"berapa set lagi?","Wie viele Sätze machst du noch?","Berapa set lagi yang kamu lakukan?"],
+["Wie oft trainierst du?",0,"seberapa sering kamu latihan?","Wie oft trainierst du pro Woche?","Seberapa sering kamu latihan seminggu?"]]},
+{t:"Kencan",de:"Dating",tip:"Orang Jerman cenderung langsung dan jujur. “Ich mag dich” (aku suka kamu) terdengar ringan, sedangkan “Ich liebe dich” itu serius dan jarang diucapkan di awal. Huruf ch pada “mich” dan “dich” dibaca lembut, seperti desisan “h” yang halus.",w:[
+["Du siehst toll aus",0,"kamu terlihat keren","Du siehst heute toll aus!","Kamu terlihat keren hari ini!"],
+["Hast du Lust auf einen Kaffee?",0,"mau ngopi bareng?","Hast du Lust auf einen Kaffee?","Mau ngopi bareng?"],
+["Wann hast du Zeit?",0,"kapan kamu ada waktu?","Wann hast du Zeit? Am Samstag?","Kapan kamu ada waktu? Hari Sabtu?"],
+["Das Date","das","kencan","Das Date war richtig schön.","Kencannya benar-benar menyenangkan."],
+["Darf ich dich einladen?",0,"boleh aku traktir kamu?","Darf ich dich zum Essen einladen?","Boleh aku traktir kamu makan?"],
+["Es war ein schöner Abend",0,"malam ini menyenangkan","Es war ein schöner Abend. Danke!","Malam ini menyenangkan. Terima kasih!"],
+["Ich mag dich",0,"aku suka kamu","Ich mag dich wirklich.","Aku benar-benar suka kamu."],
+["Ich vermisse dich",0,"aku kangen kamu","Ich vermisse dich schon.","Aku sudah kangen kamu."]]}
+].map((u,ui)=>({...u,w:u.w.map((r,i)=>({k:ui+"-"+i,de:r[0],art:r[1]||null,id:r[2],ex:r[3],exid:r[4]}))}));
+const ALL=U.flatMap(u=>u.w);
+let P={known:{},xp:0,streak:0,last:""};
+try{const s=localStorage.getItem("ayo-deutsch");if(s)P=Object.assign(P,JSON.parse(s))}catch(e){}
+const save=()=>{try{localStorage.setItem("ayo-deutsch",JSON.stringify(P))}catch(e){}};
+const $=document.getElementById("app");
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+const full=w=>(w.art?w.art+" ":"")+w.de;
+const wh=w=>w.art?`<span class="art ${w.art}">${w.art}</span> ${w.de}`:w.de;
+const speak=t=>{try{const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
+const today=()=>new Date().toISOString().slice(0,10);
+function touch(xp){const d=today();if(P.last!==d){const y=new Date(Date.now()-864e5).toISOString().slice(0,10);P.streak=P.last===y?P.streak+1:1;P.last=d}P.xp+=xp;save()}
+const knownIn=u=>u.w.filter(w=>P.known[w.k]).length;
+let S={v:"home",u:0};
+function top(back){return `<div class="top">${back?`<button class="back" data-a="${back}">← Kembali</button>`:`<span class="muted">Ayo Deutsch</span>`}<div class="stats"><span>Hari beruntun <b>${P.streak}</b></span><span>XP <b>${P.xp}</b></span></div></div>`}
+function home(){
+const n=ALL.filter(w=>P.known[w.k]).length;
+$.innerHTML=top()+`<h1>Ayo Deutsch</h1><p class="muted" style="margin-top:10px">Belajar bahasa Jerman lewat bahasa Indonesia. ${n} dari ${ALL.length} kata sudah kamu hafal.</p>
+<div class="chips"><span class="chip der">der · maskulin</span><span class="chip die">die · feminin</span><span class="chip das">das · netral</span></div>`+
+U.map((u,i)=>`<button class="unit" data-a="unit" data-i="${i}"><h3>${u.t}</h3><p class="muted">${u.de} · ${knownIn(u)}/${u.w.length} kata & frasa</p><div class="bar"><i style="width:${knownIn(u)/u.w.length*100}%"></i></div></button>`).join("");
+}
+function unit(){
+const u=U[S.u],nouns=u.w.some(w=>w.art);
+$.innerHTML=top("home")+`<h2>${u.t}</h2><p class="muted">${u.de}</p>
+<div class="card tip" style="margin-top:16px"><h3>Tips belajar</h3><p style="margin-top:6px">${u.tip}</p></div>
+<div class="modes"><button class="btn" data-a="flash">Kartu kata</button><button class="btn alt" data-a="quiz">Kuis pilihan ganda</button>${nouns?`<button class="btn alt" data-a="art">Latihan der / die / das</button>`:""}</div>
+<div class="card"><h3>Daftar kata</h3><div class="list">${u.w.map(w=>`<div><span>${wh(w)}</span><span class="${P.known[w.k]?"k":"muted"}">${w.id}</span></div>`).join("")}</div></div>`;
+}
+let F,Q,A;
+function flash(){
+if(F.i>=F.q.length)return done("Kartu selesai",F.ok,F.q.length,F.ok*2);
+const w=F.q[F.i];
+$.innerHTML=top("unit")+`<p class="prog">Kartu ${F.i+1} dari ${F.q.length}</p>
+<div class="card flash" data-a="flip">${F.f?`<div class="big">${w.id}</div><p class="ex">${w.ex}<br><span class="muted">${w.exid}</span></p>`:`<div class="big">${wh(w)}</div><p class="muted">Ketuk untuk melihat arti</p>`}</div>
+<p style="text-align:center;margin-bottom:14px"><button class="spk" data-a="spk">🔊 Dengarkan</button></p>
+<div class="row"><button class="btn alt" data-a="no">Belum hafal</button><button class="btn" data-a="yes">Hafal</button></div>`;
+}
+function quiz(){
+if(Q.i>=Q.q.length)return done("Kuis selesai",Q.s,Q.q.length,Q.s*5);
+const q=Q.q[Q.i];
+$.innerHTML=top("unit")+`<p class="prog">Soal ${Q.i+1} dari ${Q.q.length}</p><div class="card"><p class="muted">${q.d?"Apa arti kata ini?":"Bagaimana bahasa Jermannya?"}</p><div class="big" style="margin-top:8px">${q.d?wh(q.w):q.w.id}</div></div>`+
+q.o.map((o,i)=>`<button class="opt ${Q.a!=null?(o===q.c?"ok":(i===Q.a?"no":"")):""}" data-a="pick" data-i="${i}" ${Q.a!=null?"disabled":""}>${o}</button>`).join("")+
+(Q.a!=null?`<div class="card"><p>${q.w.ex}</p><p class="muted">${q.w.exid}</p></div><button class="btn" data-a="next">Lanjut</button>`:"");
+}
+function art(){
+if(A.i>=A.q.length)return done("Latihan selesai",A.s,A.q.length,A.s*5);
+const w=A.q[A.i];
+$.innerHTML=top("unit")+`<p class="prog">Soal ${A.i+1} dari ${A.q.length}</p><div class="card"><p class="muted">Artikel apa untuk kata ini?</p><div class="big" style="margin-top:8px">${w.de}</div><p class="muted" style="margin-top:4px">${w.id}</p></div>
+<div class="artbtns">${["der","die","das"].map(a=>`<button class="${a} ${A.a?(a===w.art?"ok":""):""}" data-a="art1" data-v="${a}" ${A.a?"disabled":""}><span>${a}</span></button>`).join("")}</div>
+<div class="fb">${A.a?(A.a===w.art?`<b class="das">Benar!</b>`:`<b class="die">Belum tepat.</b> Jawabannya <b class="${w.art}">${w.art}</b>.`)+`<p>${w.ex}</p><p class="muted">${w.exid}</p>`:""}</div>${A.a?`<button class="btn" data-a="anext">Lanjut</button>`:""}`;
+}
+function done(t,s,n,xp){
+touch(xp);
+$.innerHTML=top("unit")+`<h2>${t}</h2><div class="card" style="margin-top:16px"><div class="big">${s} / ${n}</div><p class="muted" style="margin-top:8px">+${xp} XP · hari beruntun ${P.streak}</p></div><div class="row"><button class="btn alt" data-a="unit">Ke unit</button><button class="btn" data-a="home">Beranda</button></div>`;
+S.v="done";
+}
+function mkQuiz(){
+const u=U[S.u];
+Q={i:0,s:0,a:null,q:shuf(u.w).map((w,i)=>{const d=i%2===0,txt=x=>d?x.id:full(x);return{w,d,c:txt(w),o:shuf([w,...shuf(u.w.filter(x=>x!==w)).slice(0,3)]).map(txt)}})};
+}
+document.addEventListener("click",e=>{
+const b=e.target.closest("[data-a]");if(!b)return;
+const a=b.dataset.a,u=U[S.u];
+if(a==="home"){S.v="home";home()}
+else if(a==="unit"){if(b.dataset.i!=null)S.u=+b.dataset.i;S.v="unit";unit();window.scrollTo(0,0)}
+else if(a==="flash"){F={i:0,f:false,ok:0,q:shuf(u.w)};S.v="flash";flash()}
+else if(a==="flip"){F.f=!F.f;flash()}
+else if(a==="spk"){speak(full(F.q[F.i]))}
+else if(a==="yes"||a==="no"){const w=F.q[F.i];P.known[w.k]=a==="yes"?1:0;if(a==="yes")F.ok++;save();F.i++;F.f=false;flash()}
+else if(a==="quiz"){mkQuiz();S.v="quiz";quiz()}
+else if(a==="pick"){const q=Q.q[Q.i];Q.a=+b.dataset.i;if(q.o[Q.a]===q.c){Q.s++;P.known[q.w.k]=1;save()}quiz()}
+else if(a==="next"){Q.i++;Q.a=null;quiz()}
+else if(a==="art"){A={i:0,s:0,a:null,q:shuf(u.w.filter(w=>w.art))};S.v="art";art()}
+else if(a==="art1"){const w=A.q[A.i];A.a=b.dataset.v;if(A.a===w.art)A.s++;art();speak(full(w))}
+else if(a==="anext"){A.i++;A.a=null;art()}
+});
+home();
+</script>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(()=>{})})}
+</script>
+</body>
+</html>
